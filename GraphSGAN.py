@@ -17,8 +17,6 @@ import os
 import random
 from FeatureGraphDataset import FeatureGraphDataset
 import pickle as pkl
-from data_loader import load_data
-
 class GraphSGAN(object):
     def __init__(self, G, D, dataset, args):
         if os.path.exists(args.savedir):
@@ -198,20 +196,8 @@ if __name__ == '__main__':
     
 
     # but we load the example of cora
-
-    adj, features, labels, idx_train, idx_val, idx_test = load_data('cora')
-    dataset = FeatureGraphDataset(features,labels,adj)
-    
-    
-    
-
-
-    gan = GraphSGAN(generator(200, features.snape[1]), Discriminator(features.snape[1],np.max(labels) + 1), ,args)
-
-
-    '''
     with open('cora.dataset', 'r') as fdata:
         dataset = pkl.load(fdata)
     gan = GraphSGAN(Generator(200, dataset.k + dataset.d), Discriminator(dataset.k + dataset.d, dataset.m), dataset, args)
     gan.train() 
-    '''
+    
